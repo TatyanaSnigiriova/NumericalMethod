@@ -1,6 +1,6 @@
-// Ìíîãî÷ëåí Ëàãðàíæà
-// Ïîäðîáíîå îïèñàíèå òîãî, ÷òî âîîáùå ïðîèñõîäèò, ñìîòðèòå íà https://www.youtube.com/watch?v=n20YcXpZL5E
-// Îãðîìíàÿ áëàãîäàðíîñòü Áîÿðøèíîâó Áîðèñó Ñåðãååâè÷ó è Ôîìèíîé Ëþáîâè Íèêîëàåâíå çà èõ ïðåïîäàâàòåëüñêèé òðóä
+// Многочлен Лагранжа
+// Подробное описание того, что вообще происходит, смотрите на https://www.youtube.com/watch?v=n20YcXpZL5E
+// Огромная благодарность Бояршинову Борису Сергеевичу и Фоминой Любови Николаевне за их преподавательский труд
 
 #include "stdafx.h"
 #include <iostream>
@@ -17,7 +17,7 @@ int factorial(int num)
 	return num * factorial(num - 1);
 }
 
-// Ââåäèòå ñþäà ñâîþ ôóíêöèþ
+// Введите сюда свою функцию
 long float  function(long float x)
 {
 	//return  sin(exp(pow(x, 2)));
@@ -31,37 +31,37 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 	int n;
-	cout << " Ââåäèòå êîëè÷åñòâî óçëîâûõ òî÷åê x (n >= 2):\n";
+	cout << " Введите количество узловых точек x (n >= 2):\n";
 	do
 	{
 		cout << " n = ";
 		cin >> n;
-		if (n < 2)  cout << "Ââåäèòå n >= 2\n";
+		if (n < 2)  cout << "Введите n >= 2\n";
 	} while (n < 2);
 
 	long float X0;
-	cout << "\n Ââåäèòå X0:\n X0 = ";
+	cout << "\n Введите X0:\n X0 = ";
 	cin >> X0;
 
 	long float dX;
-	cout << "\n Ââåäèòå ðàññòîÿíèå ìåæäó óçëîâûìè òî÷êàìè Xi,Xj (i,j = {0,...,n-1}; i != j) (dX > 0):\n";
+	cout << "\n Введите расстояние между узловыми точками Xi,Xj (i,j = {0,...,n-1}; i != j) (dX > 0):\n";
 	do
 	{
 		cout << " dX = ";
 		cin >> dX;
-		if (dX <= 0)  cout << "Ââåäèòå dX > 0\n";
+		if (dX <= 0)  cout << "Введите dX > 0\n";
 	} while (dX <= 0);
 
-	int countIntermediateX; // Âûíóæäåííîå äëèííîå íàçâàíèå
-	cout << "\n Ââåäèòå ÷èñëî ïðîìåæóòî÷íûõ òî÷åê äëÿ îòðåçêà XiXj (i,j = {0, ..., n-1}; i != j) (countIntermediateX >= 0):\n";
+	int countIntermediateX; // Вынужденное длинное название
+	cout << "\n Введите число промежуточных точек для отрезка XiXj (i,j = {0, ..., n-1}; i != j) (countIntermediateX >= 0):\n";
 	do
 	{
 		cout << " countIntermediateX = ";
 		cin >> countIntermediateX;
-		if (countIntermediateX < 0)  cout << "Ââåäèòå countIntermediateX >= 0\n";
+		if (countIntermediateX < 0)  cout << "Введите countIntermediateX >= 0\n";
 	} while (countIntermediateX < 0);
 
-	int countXY = (n - 1) * (countIntermediateX + 1) + 1; // Îáùåå êîëè÷åñòâî òî÷åê 
+	int countXY = (n - 1) * (countIntermediateX + 1) + 1; // Общее количество точек 
 	long float dXIntermediate = dX / (countIntermediateX + 1); 
 	long float *X = new long float[countXY];// X0 = X[0], X1 = X[10], x2 = X2 =  X[20]...
 	X[0] = X0;
@@ -79,7 +79,7 @@ int main()
 	FOut.open("Lagrange.txt", ios::out);
 	if (FOut)
 	{
-		cout << "\n Äàííûå çíà÷åíèÿ âûãðóæàþòñÿ â ôàéë Lagrange.txt,\nèìïîðòèðóéòå äîêóìåíò â ôîðìàò Excel äëÿ ëó÷øåé ÷èòàåìîñòè äàííûõ;\n";
+		cout << "\n Данные значения выгружаются в файл Lagrange.txt,\nимпортируйте документ в формат Excel для лучшей читаемости данных;\n";
 		cout << endl << "|---|----------|-----------|-------------|-----------|" << endl;
 		cout << "| i |    x     |     y     |      L      |     R     |" << endl;
 		cout << "|---|----------|-----------|-------------|-----------|" << endl;
@@ -110,6 +110,7 @@ int main()
 }
 
 
+
 long float * Lagrange(int n, long float dX, int countIntermediateX, int countXY, long float * X, long float * Y)
 {
 	long float *L = new long float[countXY];
@@ -120,11 +121,11 @@ long float * Lagrange(int n, long float dX, int countIntermediateX, int countXY,
 
 	for (int xi = 0; xi < countXY; xi++)
 	{
-		for (int yi = 0; yi < n; yi++) // Â ôóíêöèè Ëàãðàíæà, ïîìèìî (xi) ó÷àñòâóþò òîëüêî óçëîâûå òî÷êè 
+		for (int yi = 0; yi < n; yi++) // В функции Лагранжа, помимо (xi) участвуют только узловые точки 
 		{
 			hugeMultiplier = 1;
 			for (int xyj = 0; xyj < n; xyj++)
-				if (xyj != yi) // Ïðîèçâåäåíèå âñåõ ïàð X[xi] - X[xyj], ãäå xyj != yi  
+				if (xyj != yi) // Произведение всех пар X[xi] - X[xyj], где xyj != yi  
 					hugeMultiplier *= (X[xi] - X[xyj*(countIntermediateX + 1)]);
 
 			hugeMultiplier /= pow(dX, n - 1) *  factorial(yi) * factorial(n - 1 - yi) * pow(-1, n - 1 - yi);

@@ -1,5 +1,5 @@
-// Численное интегрирование (часть 1)
-// Методы прямоугольников (левый, правый и центральный) и метод трапеций.
+// Р§РёСЃР»РµРЅРЅРѕРµ РёРЅС‚РµРіСЂРёСЂРѕРІР°РЅРёРµ (С‡Р°СЃС‚СЊ 1)
+// РњРµС‚РѕРґС‹ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ (Р»РµРІС‹Р№, РїСЂР°РІС‹Р№ Рё С†РµРЅС‚СЂР°Р»СЊРЅС‹Р№) Рё РјРµС‚РѕРґ С‚СЂР°РїРµС†РёР№.
 
 #include "stdafx.h"
 #include <iostream>
@@ -9,9 +9,9 @@
 
 using namespace std;
 
-// Просто расскоментируйте один из тестовых примеров в каждой функции перед main, или напишите свой. 
+// РџСЂРѕСЃС‚Рѕ СЂР°СЃСЃРєРѕРјРµРЅС‚РёСЂСѓР№С‚Рµ РѕРґРёРЅ РёР· С‚РµСЃС‚РѕРІС‹С… РїСЂРёРјРµСЂРѕРІ РІ РєР°Р¶РґРѕР№ С„СѓРЅРєС†РёРё РїРµСЂРµРґ main, РёР»Рё РЅР°РїРёС€РёС‚Рµ СЃРІРѕР№. 
 
-// Введите сюда свою функцию
+// Р’РІРµРґРёС‚Рµ СЃСЋРґР° СЃРІРѕСЋ С„СѓРЅРєС†РёСЋ
 long float  F(long float x)
 {
 	// 1)
@@ -22,7 +22,7 @@ long float  F(long float x)
 	// return tan(pow(x, 2)) / (x + 1);
 }
 
-// Первая производная функции F
+// РџРµСЂРІР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ С„СѓРЅРєС†РёРё F
 long float  FFirstDerivative(long float x)
 {
 	// 1)
@@ -33,7 +33,7 @@ long float  FFirstDerivative(long float x)
 	// return (2 * x * (x + 1) * pow(cos(x * x), - 2) - tan(x * x)) / pow(x + 1, 2);
 }
 
-// Вторая производная функции F
+// Р’С‚РѕСЂР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ С„СѓРЅРєС†РёРё F
 long float  FSecondDerivative(long float x)
 {
 	// 1)
@@ -49,7 +49,7 @@ long float  FSecondDerivative(long float x)
 	*/
 }
 
-// Текстовое представление функции F  
+// РўРµРєСЃС‚РѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ С„СѓРЅРєС†РёРё F  
 char * getF()
 {
 	// 1)
@@ -73,25 +73,25 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 	float a = 1, b = 0;
-	cout << "Для функции " << getF() << " введите границы интегрирования a и b:\n";
+	cout << "Р”Р»СЏ С„СѓРЅРєС†РёРё " << getF() << " РІРІРµРґРёС‚Рµ РіСЂР°РЅРёС†С‹ РёРЅС‚РµРіСЂРёСЂРѕРІР°РЅРёСЏ a Рё b:\n";
 	while (a >= b)
 	{
 		cout << "	a = ";
 		cin >> a;
 		cout << "	b = ";
 		cin >> b;
-		cout << "Вы ввели a = " << a << ", b = " << b << ".\n";
+		cout << "Р’С‹ РІРІРµР»Рё a = " << a << ", b = " << b << ".\n";
 		if (a >= b)
-			cout << "Введите a < b.\n";
+			cout << "Р’РІРµРґРёС‚Рµ a < b.\n";
 	}
 
 	int countIntermediateX;
-	cout << "\n Введите количество промежуточных точек для отрезка [a; b] (countIntermediateX > 0):\n";
+	cout << "\n Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… С‚РѕС‡РµРє РґР»СЏ РѕС‚СЂРµР·РєР° [a; b] (countIntermediateX > 0):\n";
 	do
 	{
 		cout << " countIntermediateX = ";
 		cin >> countIntermediateX;
-		if (countIntermediateX <= 0)  cout << "Введите countIntermediateX > 0\n";
+		if (countIntermediateX <= 0)  cout << "Р’РІРµРґРёС‚Рµ countIntermediateX > 0\n";
 	} while (countIntermediateX <= 0);
 	cout << endl;
 
@@ -105,14 +105,14 @@ int main()
 	integralVTrapeze = mTrapeze(a, b, countIntermediateX);
 	rVTrapeze = RForMTtrapeze(a, b, countIntermediateX);
 
-	cout << "Значение интеграла функции " << getF() << " вычисленного с помощью метода:\n";
-	cout << "	Левых прямоугольников - Sl = " << integralVLRect << endl;
+	cout << "Р—РЅР°С‡РµРЅРёРµ РёРЅС‚РµРіСЂР°Р»Р° С„СѓРЅРєС†РёРё " << getF() << " РІС‹С‡РёСЃР»РµРЅРЅРѕРіРѕ СЃ РїРѕРјРѕС‰СЊСЋ РјРµС‚РѕРґР°:\n";
+	cout << "	Р›РµРІС‹С… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ - Sl = " << integralVLRect << endl;
 	cout << "	  |Rl| <= " << rVLRect << endl;
-	cout << "	Правых прямоугольников - Sr = " << integralVRRect << endl;
+	cout << "	РџСЂР°РІС‹С… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ - Sr = " << integralVRRect << endl;
 	cout << "	  |Rr| <= " << rVRRect << endl;
-	cout << "	Средних прямоугольников - Sm = " << integralVMRect << endl;
+	cout << "	РЎСЂРµРґРЅРёС… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ - Sm = " << integralVMRect << endl;
 	cout << "	  |Rm| <= " << rVTrapeze << endl;
-	cout << "	Трапеции - Sт = " << integralVTrapeze << endl;
+	cout << "	РўСЂР°РїРµС†РёРё - SС‚ = " << integralVTrapeze << endl;
 	cout << "	  |R| <= " << rVTrapeze << endl;
 
     return 0;
@@ -121,8 +121,8 @@ int main()
 
 long float mLeftRectangle(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 	
 	long float integralV = 0;
 	for (int i = 0; i < n - 1; i++)
@@ -134,8 +134,8 @@ long float mLeftRectangle(long float a, long float b, int countIntermediateX)
 
 long float mRightRectangle(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float integralV = 0;
 	for (int i = 1; i < n; i++)
@@ -147,8 +147,8 @@ long float mRightRectangle(long float a, long float b, int countIntermediateX)
 
 long float RForMLAndRRectangle(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float M1 = abs(FFirstDerivative(a)), M1check;
 	for (int i = 1; i < n; i++)
@@ -162,8 +162,8 @@ long float RForMLAndRRectangle(long float a, long float b, int countIntermediate
 
 long float mMiddleRectangle(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float integralV = 0;
 	for (int i = 1; i < n; i++)
@@ -175,8 +175,8 @@ long float mMiddleRectangle(long float a, long float b, int countIntermediateX)
 
 long float RForMMiddleRectangle(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float M2 = abs(FSecondDerivative(a)), M2check;
 	for (int i = 1; i < n; i++)
@@ -190,8 +190,8 @@ long float RForMMiddleRectangle(long float a, long float b, int countIntermediat
 
 long float mTrapeze(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float integralV = (F(a) + F(b)) / 2;
 	for (int i = 1; i < n - 1; i++)
@@ -203,8 +203,8 @@ long float mTrapeze(long float a, long float b, int countIntermediateX)
 
 long float RForMTtrapeze(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float M2 = abs(FSecondDerivative(a)), M2check;
 	for (int i = 1; i < n; i++)

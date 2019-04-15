@@ -1,7 +1,7 @@
-// Численное интегрирование (часть 2).
-// Метод Симпсона (метод парабол).
-// Подробное описание того, что вообще происходит, смотрите на https://www.youtube.com/watch?v=0Xk1SABeiVo
-// Огромная благодарность Бояршинову Борису Сергеевичу и Фоминой Любови Николаевне за их преподавательский труд
+// Р§РёСЃР»РµРЅРЅРѕРµ РёРЅС‚РµРіСЂРёСЂРѕРІР°РЅРёРµ (С‡Р°СЃС‚СЊ 2).
+// РњРµС‚РѕРґ РЎРёРјРїСЃРѕРЅР° (РјРµС‚РѕРґ РїР°СЂР°Р±РѕР»).
+// РџРѕРґСЂРѕР±РЅРѕРµ РѕРїРёСЃР°РЅРёРµ С‚РѕРіРѕ, С‡С‚Рѕ РІРѕРѕР±С‰Рµ РїСЂРѕРёСЃС…РѕРґРёС‚, СЃРјРѕС‚СЂРёС‚Рµ РЅР° https://www.youtube.com/watch?v=0Xk1SABeiVo
+// РћРіСЂРѕРјРЅР°СЏ Р±Р»Р°РіРѕРґР°СЂРЅРѕСЃС‚СЊ Р‘РѕСЏСЂС€РёРЅРѕРІСѓ Р‘РѕСЂРёСЃСѓ РЎРµСЂРіРµРµРІРёС‡Сѓ Рё Р¤РѕРјРёРЅРѕР№ Р›СЋР±РѕРІРё РќРёРєРѕР»Р°РµРІРЅРµ Р·Р° РёС… РїСЂРµРїРѕРґР°РІР°С‚РµР»СЊСЃРєРёР№ С‚СЂСѓРґ
 
 
 #include "stdafx.h"
@@ -11,9 +11,9 @@
 
 using namespace std;
 
-// Просто расскоментируйте один из тестовых примеров в каждой функции перед main, или напишите свой. 
+// РџСЂРѕСЃС‚Рѕ СЂР°СЃСЃРєРѕРјРµРЅС‚РёСЂСѓР№С‚Рµ РѕРґРёРЅ РёР· С‚РµСЃС‚РѕРІС‹С… РїСЂРёРјРµСЂРѕРІ РІ РєР°Р¶РґРѕР№ С„СѓРЅРєС†РёРё РїРµСЂРµРґ main, РёР»Рё РЅР°РїРёС€РёС‚Рµ СЃРІРѕР№. 
 
-// Исходная функция F
+// РСЃС…РѕРґРЅР°СЏ С„СѓРЅРєС†РёСЏ F
 long float F(long float x)
 {	
 	// 1)
@@ -24,7 +24,7 @@ long float F(long float x)
 	// return tan(pow(x, 2)) / (x + 1);
 }
 
-// Четвёртая производная функции F
+// Р§РµС‚РІС‘СЂС‚Р°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ С„СѓРЅРєС†РёРё F
 long float FFourthDerivative(long float x)
 {
 	// 1) 
@@ -50,7 +50,7 @@ long float FFourthDerivative(long float x)
 	*/
 }
 
-// Текстовое представление функции F  
+// РўРµРєСЃС‚РѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ С„СѓРЅРєС†РёРё F  
 char * getF()
 {
 	// 1)
@@ -73,33 +73,33 @@ int main()
 	// 2) a = 0, b = 1
 	// 3) a = 0, b = 1
 
-	cout << "Для функции " << getF() << " введите границы интегрирования a и b:\n";
+	cout << "Р”Р»СЏ С„СѓРЅРєС†РёРё " << getF() << " РІРІРµРґРёС‚Рµ РіСЂР°РЅРёС†С‹ РёРЅС‚РµРіСЂРёСЂРѕРІР°РЅРёСЏ a Рё b:\n";
 	while (a >= b)
 	{
 		cout << "	a = ";
 		cin >> a;
 		cout << "	b = ";
 		cin >> b;
-		cout << "Вы ввели a = " << a << ", b = " << b << ".\n";
+		cout << "Р’С‹ РІРІРµР»Рё a = " << a << ", b = " << b << ".\n";
 		if (a >= b)
-			cout << "Введите a < b.\n";
+			cout << "Р’РІРµРґРёС‚Рµ a < b.\n";
 	}
 
 	int countIntermediateX;
-	cout << "\n Введите количество промежуточных точек для отрезка [a; b]\n  (countIntermediateX >= 1 and countIntermediateX % 2 == 1):\n";
+	cout << "\n Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… С‚РѕС‡РµРє РґР»СЏ РѕС‚СЂРµР·РєР° [a; b]\n  (countIntermediateX >= 1 and countIntermediateX % 2 == 1):\n";
 	do
 	{
 		cout << "	countIntermediateX = ";
 		cin >> countIntermediateX;
-		if (countIntermediateX < 1 || (countIntermediateX % 2) != 1)  cout << "Введите нечетное countIntermediateX >= 1.\n";
+		if (countIntermediateX < 1 || (countIntermediateX % 2) != 1)  cout << "Р’РІРµРґРёС‚Рµ РЅРµС‡РµС‚РЅРѕРµ countIntermediateX >= 1.\n";
 	} while (countIntermediateX < 1 || (countIntermediateX % 2) != 1 );
 	cout << endl;
 	long float integralVSimpson, rForSimpson;
 	integralVSimpson = mSimpson(a, b, countIntermediateX);
 	rForSimpson = RForMSimpson(a, b, countIntermediateX);
-	cout << "Значение интеграла функции " << getF() << " вычисленного с помощью метода Симпсона:\n";
+	cout << "Р—РЅР°С‡РµРЅРёРµ РёРЅС‚РµРіСЂР°Р»Р° С„СѓРЅРєС†РёРё " << getF() << " РІС‹С‡РёСЃР»РµРЅРЅРѕРіРѕ СЃ РїРѕРјРѕС‰СЊСЋ РјРµС‚РѕРґР° РЎРёРјРїСЃРѕРЅР°:\n";
 	cout << "	S = " << integralVSimpson << endl;
-	cout << "  Точность вычислений |RS| <= " << rForSimpson << endl;
+	cout << "  РўРѕС‡РЅРѕСЃС‚СЊ РІС‹С‡РёСЃР»РµРЅРёР№ |RS| <= " << rForSimpson << endl;
 	return 0;
 }
 
@@ -129,8 +129,8 @@ long float mSimpson(long float a, long float b, int countIntermediateX)
 
 long float RForMSimpson(long float a, long float b, int countIntermediateX)
 {
-	long float h = (b - a) / (countIntermediateX + 1); // Шаг между x(i) и x(i+1)
-	int n = countIntermediateX + 2; // Общее количество точек 
+	long float h = (b - a) / (countIntermediateX + 1); // РЁР°Рі РјРµР¶РґСѓ x(i) Рё x(i+1)
+	int n = countIntermediateX + 2; // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє 
 
 	long float M4 = abs(FFourthDerivative(a)), M4check;
 	for (int i = 1; i < n; i++)

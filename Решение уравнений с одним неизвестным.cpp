@@ -1,5 +1,5 @@
-// ×èñëåííîå ðåøåíèå òðàíñöåíäåíòíîãî óðàâíåíèÿ ñ îäíèì íåèçâåñòíûì.
-// Ìåòîä äèõîòîìèè, çîëîòîãî ñå÷åíèÿ è õîðä. 
+// Ð§Ð¸ÑÐ»ÐµÐ½Ð½Ð¾Ðµ Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ñ‚Ñ€Ð°Ð½ÑÑ†ÐµÐ½Ð´ÐµÐ½Ñ‚Ð½Ð¾Ð³Ð¾ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ Ñ Ð¾Ð´Ð½Ð¸Ð¼ Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¼.
+// ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¸Ñ…Ð¾Ñ‚Ð¾Ð¼Ð¸Ð¸, Ð·Ð¾Ð»Ð¾Ñ‚Ð¾Ð³Ð¾ ÑÐµÑ‡ÐµÐ½Ð¸Ñ Ð¸ Ñ…Ð¾Ñ€Ð´. 
 //
 
 #include "stdafx.h"
@@ -22,7 +22,7 @@ struct ansverForF
 	int getIter() { return iter; }
 };
 
-// âûðàçèòå y è çàïèøèòå ñþäà Âàøå óðàâíåíèå
+// Ð²Ñ‹Ñ€Ð°Ð·Ð¸Ñ‚Ðµ y Ð¸ Ð·Ð°Ð¿Ð¸ÑˆÐ¸Ñ‚Ðµ ÑÑŽÐ´Ð° Ð’Ð°ÑˆÐµ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ
 float F(float x)
 {
 	return x * x - 2;
@@ -38,7 +38,7 @@ ansverForF mofDichotomy(float a, float b, float eps )
 	float xMiddle, r;
 	ansverForF ans;
 	if (F(a)*F(b) > 0)
-		cout << "Âûáåðèòå äðóãîé ïðîìåæóòîê, íà êîòîðîì ïðîèçâåäåíèå F(a) * F(b) <= 0.\n ";
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ F(a) * F(b) <= 0.\n ";
 	else
 	{
 		if (F(a) * F(b) == 0)
@@ -89,7 +89,7 @@ ansverForF mOfGoldenSection(float a, float b, float eps)
 	bool ansFind = false;
 
 	if (F(a)*F(b) > 0)
-		cout << "Âûáåðèòå äðóãîé ïðîìåæóòîê, íà êîòîðîì ïðîèçâåäåíèå F(a) * F(b) <= 0.\n ";
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ F(a) * F(b) <= 0.\n ";
 	else
 	{
 		if (F(a) * F(b) == 0)
@@ -132,10 +132,10 @@ ansverForF mOfGoldenSection(float a, float b, float eps)
 				}
 				else
 				{
-					// Çíà÷åíèÿ èìåþò îäèíàêîâûé çíàê;
+					// Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¸Ð¼ÐµÑŽÑ‚ Ð¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ð¹ Ð·Ð½Ð°Ðº;
 					if (fXGoldenLeft * fXGoldenRight > 0)
 					{
-						// Ïðîâåðÿåì, ñ êàêèì êîíöîì îí ñîâïàäàåò
+						// ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼, Ñ ÐºÐ°ÐºÐ¸Ð¼ ÐºÐ¾Ð½Ñ†Ð¾Ð¼ Ð¾Ð½ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚
 						if (fXGoldenRight * F(xLeft) > 0)
 							xLeft = xGoldenRight;
 						else
@@ -168,12 +168,12 @@ ansverForF mOfGoldenSection(float a, float b, float eps)
 	return ans;
 }
 
-ansverForF mOfÑhord(float a, float b, float eps)
+ansverForF mOfÐ¡hord(float a, float b, float eps)
 {
 	float xi, r;
 	ansverForF ans;
 	if (F(a)*F(b) > 0)
-		cout << "Âûáåðèòå äðóãîé ïðîìåæóòîê, íà êîòîðîì ïðîèçâåäåíèå F(a) * F(b) <= 0.\n ";
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ F(a) * F(b) <= 0.\n ";
 	else
 	{
 		if (F(a) * F(b) == 0)
@@ -223,52 +223,52 @@ int main()
 	setlocale(LC_CTYPE, "rus");
 	float a = 1, b = 0, eps;
 	int k = 2;
-	cout << "Äëÿ ôóíêöèè " << getF() << " ââåäèòå ãðàíèöû a è b è ñòåïåíü k òî÷íîñòè âû÷èñëåíèé eps = 10^-k:\n";
+	cout << "Ð”Ð»Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ " << getF() << " Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ a Ð¸ b Ð¸ ÑÑ‚ÐµÐ¿ÐµÐ½ÑŒ k Ñ‚Ð¾Ñ‡Ð½Ð¾ÑÑ‚Ð¸ Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ð¹ eps = 10^-k:\n";
 	while (a >= b)
 	{
 		cout << "	a = ";
 		cin >> a;
 		cout << "	b = ";
 		cin >> b;
-		cout << "Âû ââåëè a = " << a << ", b = " << b << ".\n";
+		cout << "Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ a = " << a << ", b = " << b << ".\n";
 		if (a >= b)
-			cout << "Ââåäèòå a < b.\n";
+			cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ a < b.\n";
 	}
 	while (k <= 2)
 	{
 		cout << "	k = ";
 		cin >> k;
-		cout << "Âû ââåëè k = " << k << ".\n";
+		cout << "Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ k = " << k << ".\n";
 		if (k <= 2)
-			cout << "Ââåäèòå k > 2.\n";
+			cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ k > 2.\n";
 	}
 	eps = pow(10, -k);
 	ansverForF ansForDichotomy = mofDichotomy(a, b, eps);
-	cout << "Ìåòîä äèõîòîìèè: \n";
-	cout << " Îòâåò áûë íàéäåí íà " << ansForDichotomy.getIter() << " èòåðàöèè.\n";
+	cout << "ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¸Ñ…Ð¾Ñ‚Ð¾Ð¼Ð¸Ð¸: \n";
+	cout << " ÐžÑ‚Ð²ÐµÑ‚ Ð±Ñ‹Ð» Ð½Ð°Ð¹Ð´ÐµÐ½ Ð½Ð° " << ansForDichotomy.getIter() << " Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¸.\n";
 	if (ansForDichotomy.isTwoAnsvers())
-		cout << "Íà äàííîì ïðîìåæóòêå 2 êîðíÿ. Ââåäèòå äðóãîé ïðîìåæóòîê.\n";
+		cout << "ÐÐ° Ð´Ð°Ð½Ð½Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚ÐºÐµ 2 ÐºÐ¾Ñ€Ð½Ñ. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº.\n";
 	else
-		cout << "Ðåøåíèåì óðàâíåíèÿ " << getF() << " ÿâëÿåòñÿ x = " << ansForDichotomy.getX() << ", àáñîëþòíàÿ ïîãðåøíîñòü r = " << ansForDichotomy.getR() << ".\n";
+		cout << "Ð ÐµÑˆÐµÐ½Ð¸ÐµÐ¼ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ " << getF() << " ÑÐ²Ð»ÑÐµÑ‚ÑÑ x = " << ansForDichotomy.getX() << ", Ð°Ð±ÑÐ¾Ð»ÑŽÑ‚Ð½Ð°Ñ Ð¿Ð¾Ð³Ñ€ÐµÑˆÐ½Ð¾ÑÑ‚ÑŒ r = " << ansForDichotomy.getR() << ".\n";
 	cout << "\n\n";
 
 
 	ansverForF ansForGoldenSection = mOfGoldenSection(a, b, eps);
-	cout << "Ìåòîä çîëîòîãî ñå÷åíèÿ: \n";
-	cout << " Îòâåò áûë íàéäåí íà " << ansForGoldenSection.getIter() << " èòåðàöèè.\n";
+	cout << "ÐœÐµÑ‚Ð¾Ð´ Ð·Ð¾Ð»Ð¾Ñ‚Ð¾Ð³Ð¾ ÑÐµÑ‡ÐµÐ½Ð¸Ñ: \n";
+	cout << " ÐžÑ‚Ð²ÐµÑ‚ Ð±Ñ‹Ð» Ð½Ð°Ð¹Ð´ÐµÐ½ Ð½Ð° " << ansForGoldenSection.getIter() << " Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¸.\n";
 
 	if (ansForGoldenSection.isTwoAnsvers())
-		cout << "Íà äàííîì ïðîìåæóòêå 2 êîðíÿ. Ââåäèòå äðóãîé ïðîìåæóòîê.\n";
+		cout << "ÐÐ° Ð´Ð°Ð½Ð½Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚ÐºÐµ 2 ÐºÐ¾Ñ€Ð½Ñ. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº.\n";
 	else
-		cout << "Ðåøåíèåì óðàâíåíèÿ " << getF() << " ÿâëÿåòñÿ x = " << ansForGoldenSection.getX() << ", àáñîëþòíàÿ ïîãðåøíîñòü r = " << ansForGoldenSection.getR() << ".\n";
+		cout << "Ð ÐµÑˆÐµÐ½Ð¸ÐµÐ¼ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ " << getF() << " ÑÐ²Ð»ÑÐµÑ‚ÑÑ x = " << ansForGoldenSection.getX() << ", Ð°Ð±ÑÐ¾Ð»ÑŽÑ‚Ð½Ð°Ñ Ð¿Ð¾Ð³Ñ€ÐµÑˆÐ½Ð¾ÑÑ‚ÑŒ r = " << ansForGoldenSection.getR() << ".\n";
 	
-	ansverForF ansForChord = mOfÑhord(a, b, eps);
-	cout << "Ìåòîä õîðä: \n";
-	cout << " Îòâåò áûë íàéäåí íà " << ansForChord.getIter() << " èòåðàöèè.\n";
+	ansverForF ansForChord = mOfÐ¡hord(a, b, eps);
+	cout << "ÐœÐµÑ‚Ð¾Ð´ Ñ…Ð¾Ñ€Ð´: \n";
+	cout << " ÐžÑ‚Ð²ÐµÑ‚ Ð±Ñ‹Ð» Ð½Ð°Ð¹Ð´ÐµÐ½ Ð½Ð° " << ansForChord.getIter() << " Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¸.\n";
 	if (ansForChord.isTwoAnsvers())
-		cout << "Íà äàííîì ïðîìåæóòêå 2 êîðíÿ. Ââåäèòå äðóãîé ïðîìåæóòîê.\n";
+		cout << "ÐÐ° Ð´Ð°Ð½Ð½Ð¾Ð¼ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚ÐºÐµ 2 ÐºÐ¾Ñ€Ð½Ñ. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ðº.\n";
 	else
-		cout << "Ðåøåíèåì óðàâíåíèÿ " << getF() << " ÿâëÿåòñÿ x = " << ansForChord.getX() << ", àáñîëþòíàÿ ïîãðåøíîñòü r = " << ansForChord.getR() << ".\n";
+		cout << "Ð ÐµÑˆÐµÐ½Ð¸ÐµÐ¼ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ " << getF() << " ÑÐ²Ð»ÑÐµÑ‚ÑÑ x = " << ansForChord.getX() << ", Ð°Ð±ÑÐ¾Ð»ÑŽÑ‚Ð½Ð°Ñ Ð¿Ð¾Ð³Ñ€ÐµÑˆÐ½Ð¾ÑÑ‚ÑŒ r = " << ansForChord.getR() << ".\n";
 	cout << "\n\n";
 
     return 0;
