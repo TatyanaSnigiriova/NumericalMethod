@@ -1,13 +1,13 @@
 // Многочлен Лагранжа
 // Подробное описание того, что вообще происходит, смотрите на https://www.youtube.com/watch?v=n20YcXpZL5E
 // Огромная благодарность Бояршинову Борису Сергеевичу и Фоминой Любови Николаевне за их преподавательский труд
+// https://vk.com/snigiriovakoles
 
 #include "stdafx.h"
 #include <iostream>
 #include <math.h>
 #include "clocale"
 #include <fstream>
-
 
 using namespace std;
 
@@ -17,20 +17,31 @@ int factorial(int num)
 	return num * factorial(num - 1);
 }
 
+
 // Введите сюда свою функцию
-long float  function(long float x)
+long float  F(long float x)
 {
-	//return  sin(exp(pow(x, 2)));
 	return sin(x);
 }
 
+// Текстовое представление функции F  
+char * getF()
+{
+	return "F = sin(x)";
+}
+
+
 long float * Lagrange(int, long float, int, int, long float *, long float *);
 long float * accuracy(int, long float *, long float *);
+
+
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	int n;
+	cout << "	Данная программа интерполирует заданную функцию ( в данном случае " << getF() << " ) полиномом Лагранжа.\n";
+	cout << " Для работы с другими функциями, впишите их в 'F' и задайте текстовое представление в 'getF' перед функцией 'main'.\n\n";
 	cout << " Введите количество узловых точек x (n >= 2):\n";
 	do
 	{
@@ -70,7 +81,7 @@ int main()
 
 	long float *Y = new long float[countXY];
 	for (int i = 0; i < countXY; i++)
-		Y[i] = function(X[i]);
+		Y[i] = F(X[i]);
 
 	long float *L = Lagrange(n, dX, countIntermediateX, countXY, X, Y);
 	long float *R = accuracy(countXY, Y, L);
@@ -110,7 +121,6 @@ int main()
 }
 
 
-
 long float * Lagrange(int n, long float dX, int countIntermediateX, int countXY, long float * X, long float * Y)
 {
 	long float *L = new long float[countXY];
@@ -144,4 +154,3 @@ long float * accuracy(int countXY, long float * a, long float * b)
 	}
 	return R;
 }
-

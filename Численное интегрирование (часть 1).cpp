@@ -1,5 +1,6 @@
 // Численное интегрирование (часть 1)
 // Методы прямоугольников (левый, правый и центральный) и метод трапеций.
+// https://vk.com/snigiriovakoles
 
 #include "stdafx.h"
 #include <iostream>
@@ -69,10 +70,14 @@ long float RForMMiddleRectangle(long float, long float, int);
 long float mTrapeze(long float, long float, int);
 long float RForMTtrapeze(long float, long float, int);
 
+
+
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	float a = 1, b = 0;
+	cout << "	Данная программа вычисляет приближенные значения интеграла для заданной функции ( в данном случае " << getF() << " ) методами прямоугольников (левым, правым и центральным) и методом трапеций.\n";
+	cout << " Для работы с другими функциями, впишите их в 'F' и задайте текстовое представление в 'getF', а также занесите её первую и вторую производные в 'FFirstDerivative' 'FSecondDerivative' с-но перед функцией 'main'.\n Производные функции F используются для оценки погрешности.\n\n";
 	cout << "Для функции " << getF() << " введите границы интегрирования a и b:\n";
 	while (a >= b)
 	{

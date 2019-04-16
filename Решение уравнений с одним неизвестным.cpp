@@ -1,6 +1,6 @@
 // Численное решение трансцендентного уравнения с одним неизвестным.
 // Метод дихотомии, золотого сечения и хорд. 
-//
+// https://vk.com/snigiriovakoles
 
 #include "stdafx.h"
 #include "math.h"
@@ -22,6 +22,7 @@ struct ansverForF
 	int getIter() { return iter; }
 };
 
+
 // выразите y и запишите сюда Ваше уравнение
 float F(float x)
 {
@@ -32,6 +33,7 @@ char * getF()
 {
 	return "F = x^2 -2";
 } 
+
 
 ansverForF mofDichotomy(float a, float b, float eps )
 {
@@ -223,6 +225,9 @@ int main()
 	setlocale(LC_CTYPE, "rus");
 	float a = 1, b = 0, eps;
 	int k = 2;
+
+	cout << "	Данная программа находит решение трансцендентного уравнения " << getF() << " с одним неизвестным методом дихотомии, золотого сечения и хорд.\n";
+	cout << " Для работы с другими функциями, впишите их в 'F' и задайте текстовое представление в 'getF' перед функцией 'main'.\n\n";
 	cout << "Для функции " << getF() << " введите границы a и b и степень k точности вычислений eps = 10^-k:\n";
 	while (a >= b)
 	{
@@ -273,4 +278,3 @@ int main()
 
     return 0;
 }
-
